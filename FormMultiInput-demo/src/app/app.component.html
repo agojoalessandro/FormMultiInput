@@ -1,0 +1,69 @@
+<div class="container">
+ <h2>Demo Form: Sku</h2>
+ <form [formGroup]="myForm"
+       (ngSubmit)="onSubmit(myForm.value)"
+       class="jumbotron">
+
+   <div class="form-group">
+     <label for="skuInput">SKU</label>
+     <input type="text"
+           id="skuInput"
+           placeholder="SKU"
+           name="sku"
+           [formControl]="myForm.controls['sku']"
+           class="form-control">
+           <div *ngIf="!myForm.controls['sku'].valid"
+         class="alert alert-danger">SKU is invalid
+   </div>
+   <div *ngIf="myForm.controls['sku'].hasError('required')"
+         class="alert alert-danger">SKU is required
+   </div>
+           <br>
+     <label for="skuInput">FIRST NAME</label>
+     <input type="text"
+           id="firstnameInput"
+             placeholder="FIRSTNAME"
+           name="firstname"
+           [formControl]="myForm.controls['firstname']"
+           class="form-control">
+           <div *ngIf="!myForm.controls['firstname'].valid"
+         class="alert alert-danger">FIRSTNAME is invalid
+   </div>
+   <div *ngIf="myForm.controls['firstname'].hasError('required')"
+         class="alert alert-danger">FIRSTNAME is required
+   </div>
+   <br>
+   <form action="/action_page.php">
+  Select your favorite color:
+  <input type="color" name="favcolor" value="#ff0000">
+  <input type="submit">
+</form>
+
+<br>
+<form action="/action_page.php">
+  Birth:
+  <input type="date" name="bday">
+  <input type="submit">
+</form>
+
+<br>
+
+<form action="/action_page.php">
+  E-mail:
+  <input type="email" name="email">
+  <input type="submit">
+</form>
+
+<br>
+<form action="/action_page.php" method="get">
+  Points:
+  <input type="range" name="points" min="0" max="10">
+  <input type="submit">
+</form>
+   </div>
+   <button type="submit" class="btn btn-primary">Submit</button>
+ </form>
+  
+ <div *ngIf="!myForm.valid"
+ class="alert alert-danger">Form is invalid</div>
+</div>
